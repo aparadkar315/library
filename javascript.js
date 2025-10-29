@@ -16,6 +16,15 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
+Book.prototype.display = function() {
+    let bookInfo = `Title : ${this.title} 
+    \nAuthor : ${this.author} 
+    \nPages : ${this.pages} 
+    \nRead Status : ${this.read} 
+    \nID : ${this.id}`;
+    return bookInfo;
+};
+
 addBookToLibrary("The Alchemist", "Paulo Coelho", "208", "read");
 
 addBookToLibrary("ABCD", "DEF", "200", "not read Yet");
@@ -27,12 +36,13 @@ const main = document.querySelector(".container");
 for(let i = 0; i < myLibrary.length; i++) {
     let card = document.createElement("div");
     main.appendChild(card);
-    card.setAttribute("style","display:grid; grid-auto-flow:row; grid-template-columns:1fr; height:100px;")
-    for(let prop in myLibrary[i]){
+    card.setAttribute("style","height: 200px; padding: 10px; border: 1px solid black; white-space: pre;");
+    card.textContent = myLibrary[i].display();
+    /*for(let prop in myLibrary[i]){
         let bookInfo = document.createElement("div");
-        bookInfo.textContent = `${prop}: ${myLibrary[i].prop}`;
+        bookInfo.textContent = `${myLibrary[i].prop}`;
         card.appendChild(bookInfo); 
-    }
+    }*/
 }
 
 
