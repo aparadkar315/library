@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="container"></main>
+    <div class="container">
+        <aside class="sidebar">
+            <form action="">
+                <fieldset>
+                    <legend>Enter Book Details Here</legend>
+                        <p>
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title">
+                        </p>
+
+                        <p>
+                            <label for="author">Author:</label>
+                            <input type="text" id="author" name="author">
+                        </p>
+
+                        <p>
+                            <label for="pages">Number of Pages:</label>
+                            <input type="text" id="pages" name="pages">
+                        </p>
+
+                        <p>
+                            <label for="readStatus">Read Status:</label>
+                            <input type="text" id="readStatus" name="pages">
+                        </p>
+
+                
+                            <button type="submit" class="addBook">Add Book</button>
+                       
+                </fieldset>
+            </form>
+        </aside>
+        <main class="card-container"></main>
+    </div>
+
     <script src="javascript.js"></script>
 </body>
 </html>
