@@ -46,7 +46,7 @@ legend {
     color: rgb(121, 81, 81);
 }
 
-.addBook {
+.addBook, .reset {
     width: 100px;
     border-radius: 5px;
     margin-top: 20px;
@@ -58,10 +58,10 @@ legend {
 }
 
 .card-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(autofit, minmax(200px, 1fr));
-    gap: 10px;
-    background-color: rgb(121, 81, 81);
+    display: flex;
+    background-color: rgb(141, 111, 111); 
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: scroll;
 }
 
