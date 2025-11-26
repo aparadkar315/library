@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 let i = 0;
 
 function Book(title, author, pages, read) {
@@ -68,7 +68,7 @@ const readStat = document.querySelector("#readStat");
 const addBook = document.querySelector(".addBook");
 addBook.addEventListener("click", addBookThruForm);
 
-/*const rem = document.querySelectorAll("remove");
+/*const rem = document.querySelectorAll("remove");*/
 
 
 
