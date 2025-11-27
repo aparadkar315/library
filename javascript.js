@@ -28,8 +28,6 @@ Book.prototype.display = function() {
     return bookInfo;
 };
 
-/*addBookToLibrary("The Alchemist", "Paulo Coelho", "208", "read");
-addBookToLibrary("ABCD", "DEF", "200", "not read Yet");*/
 
 function addBookThruForm(event) {
     event.preventDefault();
@@ -45,20 +43,24 @@ const main = document.querySelector(".card-container")
     let card = document.createElement("div");
     main.appendChild(card);
     card.setAttribute("style","display:flex; flex-direction: column; height: 300px; width: 350px; margin: 20px; color:rgba(129, 72, 72, 1); padding: 20px; border: 1px solid black; border-radius: 10px; white-space: pre;");
-    card.setAttribute("data-id", myLibrary[i].id);
     card.style.backgroundColor = 'rgb(209, 207, 207)';
     card.textContent = myLibrary[i].display();
+
     let remove = document.createElement("button");
     remove.setAttribute("style","align-self:center; margin-top: 25px; width: 100px; border-radius: 5px; height: 35px; background-color: rgb(121, 81, 81); color: white; font-weight: 900;");
     remove.textContent = "Remove";
     card.appendChild(remove);
-    
+    remove.addEventListener("click", () => {
+        main.removeChild(card);
+        myLibrary.pop();
+        console.log(myLibrary.length);
+        i--;
+    });
+
     i++;  
 }
 
-/*function removeBooks() {
-    myLibrary.findIndex(book => book.id == )
-}*/
+
 
 const tit = document.querySelector("#tit");
 const auth = document.querySelector("#auth");
@@ -68,7 +70,9 @@ const readStat = document.querySelector("#readStat");
 const addBook = document.querySelector(".addBook");
 addBook.addEventListener("click", addBookThruForm);
 
-/*const rem = document.querySelectorAll("remove");*/
+
+
+
 
 
 
