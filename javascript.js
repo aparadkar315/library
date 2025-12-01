@@ -1,5 +1,5 @@
 let myLibrary = [];
-let i = 0;
+
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -13,20 +13,18 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
+    let book = new Book(title, author, pages, read);
     myLibrary.push(book);
 }
 
-/*function to display a book*/
 
-Book.prototype.display = function() {
-    let bookInfo = `Title : ${this.title} 
-    \nAuthor : ${this.author} 
-    \nPages : ${this.pages} 
-    \nRead Status : ${this.read} 
-    \nID : ${this.id}`;
-    return bookInfo;
-};
+Book.prototype.changeStatus = function(){
+    if(this.read.toLowerCase() === "read"){
+        this.read = "Not Read Yet";
+    }else if(this.read.toLowerCase() === "not read yet"){
+        this.read ="Read";
+    }
+    };
 
 
 function addBookThruForm(event) {
@@ -38,26 +36,63 @@ function addBookThruForm(event) {
 console.log(myLibrary);
 
 function displayBooks() {
-const main = document.querySelector(".card-container")
-
+    const main = document.querySelector(".card-container")
+    main.innerHTML = '';
+    
+    myLibrary.forEach((book) => {
+    
+/*Book Info*/
     let card = document.createElement("div");
-    main.appendChild(card);
-    card.setAttribute("style","display:flex; flex-direction: column; height: 300px; width: 350px; margin: 20px; color:rgba(129, 72, 72, 1); padding: 20px; border: 1px solid black; border-radius: 10px; white-space: pre;");
+    card.classList.add('book');
     card.style.backgroundColor = 'rgb(209, 207, 207)';
-    card.textContent = myLibrary[i].display();
+    main.appendChild(card);
 
+    let bookTitle = document.createElement("div");
+    bookTitle.classList.add('info');
+    bookTitle.textContent = `Title: ${book.title}`;
+    card.appendChild(bookTitle);
+
+    let bookAuthor = document.createElement("div");
+    bookAuthor.classList.add('info');
+    bookAuthor.textContent = `Author: ${book.author}`;
+    card.appendChild(bookAuthor);
+
+    let bookPages = document.createElement("div");
+    bookPages.classList.add('info');
+    bookPages.textContent = `No of Pages: ${book.pages}`;
+    card.appendChild(bookPages);
+
+    let bookReadStatus = document.createElement("div");
+    bookReadStatus.classList.add('info');
+    bookReadStatus.textContent = `Read Status: ${book.read}`;
+    card.appendChild(bookReadStatus);
+
+    let bookId = document.createElement("div");
+    bookId.classList.add('info');
+    bookId.textContent = `Id: ${book.id}`;
+    card.appendChild(bookId);
+
+/*Remove Button*/
     let remove = document.createElement("button");
-    remove.setAttribute("style","align-self:center; margin-top: 25px; width: 100px; border-radius: 5px; height: 35px; background-color: rgb(121, 81, 81); color: white; font-weight: 900;");
+    remove.classList.add('remove');
     remove.textContent = "Remove";
     card.appendChild(remove);
     remove.addEventListener("click", () => {
         main.removeChild(card);
         myLibrary.pop();
         console.log(myLibrary.length);
-        i--;
     });
-
-    i++;  
+    
+/*Change Status Button*/
+    let changeReadStatus = document.createElement("button");
+    changeReadStatus.classList.add('read');
+    changeReadStatus.textContent = "Read?";  
+    card.appendChild(changeReadStatus);
+    changeReadStatus.addEventListener("click", () => {
+        book.changeStatus();
+        bookReadStatus.textContent = `Read Status: ${book.read}`;
+        }); 
+     }) 
 }
 
 
