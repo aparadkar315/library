@@ -1,5 +1,12 @@
 let myLibrary = [];
 
+const tit = document.querySelector("#tit");
+const auth = document.querySelector("#auth");
+const pag = document.querySelector("#pag");
+const readStat = document.querySelector("#readStat");
+
+const addBook = document.querySelector(".addBook");
+addBook.addEventListener("click", addBookThruForm);
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -20,8 +27,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 Book.prototype.changeStatus = function(){
     if(this.read.toLowerCase() === "read"){
-        this.read = "Not Read Yet";
-    }else if(this.read.toLowerCase() === "not read yet"){
+        this.read = "Not Read";
+    }else if(this.read.toLowerCase() === "not read"){
         this.read ="Read";
     }
     };
@@ -32,8 +39,6 @@ function addBookThruForm(event) {
      addBookToLibrary(tit.value, auth.value, pag.value, readStat.value);
      displayBooks();
 }
-
-console.log(myLibrary);
 
 function displayBooks() {
     const main = document.querySelector(".card-container")
@@ -80,7 +85,6 @@ function displayBooks() {
     remove.addEventListener("click", () => {
         main.removeChild(card);
         myLibrary.pop();
-        console.log(myLibrary.length);
     });
     
 /*Change Status Button*/
@@ -97,13 +101,7 @@ function displayBooks() {
 
 
 
-const tit = document.querySelector("#tit");
-const auth = document.querySelector("#auth");
-const pag = document.querySelector("#pag");
-const readStat = document.querySelector("#readStat");
 
-const addBook = document.querySelector(".addBook");
-addBook.addEventListener("click", addBookThruForm);
 
 
 
