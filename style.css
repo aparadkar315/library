@@ -61,7 +61,62 @@ legend {
     display: flex;
     background-color: rgb(141, 111, 111); 
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     overflow: scroll;
 }
 
+.info {
+    height: 30px; 
+    margin: 5px; 
+    background-color: white; 
+    display:flex; 
+    color: rgb(121, 81, 81); 
+    justify-content:center;
+}
+
+.book {
+    display:flex; 
+    flex-direction: column; 
+    height: 300px; 
+    width: 350px; 
+    margin: 20px; 
+    color:rgba(129, 72, 72, 1); 
+    padding: 20px; 
+    border: 1px solid black; 
+    border-radius: 10px; 
+    white-space: pre;
+}
+
+.remove {
+    align-self:center; 
+    margin-top: 25px; 
+    width: 100px; 
+    border-radius: 5px; 
+    height: 35px; 
+    background-color: rgb(121, 81, 81); 
+    color: white; 
+    font-weight: 900;
+}
+
+.read {
+    align-self:center; 
+    margin-top: 25px; 
+    width: 100px; 
+    border-radius: 5px; 
+    height: 35px; 
+    background-color: rgb(121, 81, 81); 
+    color: white; 
+    font-weight: 900;
+}
+
+main {
+    position: relative;
+}
+
+h1 {
+    color: rgb(209, 207, 207);
+    position: absolute;
+    top: 45vh;
+    left: 25vw;
+}
